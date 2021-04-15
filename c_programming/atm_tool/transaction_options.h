@@ -1,5 +1,4 @@
 /*Note: This function will ask the user for available transactions.*/
-
 int transaction_options(void){
 	int option;
 	printf("\n\t\t ==========*Available Transactions*==========\n");
