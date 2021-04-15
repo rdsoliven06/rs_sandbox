@@ -1,7 +1,5 @@
 //Written by Riad Soliven
-
 #include <stdio.h>
-
 #define LEN 10 //length of the array
 
 //function declarations
@@ -18,7 +16,6 @@ int main(){
 	printf("The total odd numbers in the array is: %d\n", count);
 	
 	sum = find_sum(arr,sum);
-
 	printf("The sum of all odd numbers in the array is: %d\n", sum);
 
 	return 0;
