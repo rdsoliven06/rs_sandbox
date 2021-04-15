@@ -1,6 +1,5 @@
 /*Note: This function is for deposit option. It will ask the user for the amount, calculate the new balance, display the deposited amount
 	and the new balance, set current balance to new balance.*/
-
 int deposit_option(int current_balance){
 	int new_balance = 0;
 	int deposit_amnt;
