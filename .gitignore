@@ -1,3 +1,9 @@
-#ignore files containing:
+#Executables
 *.out
+*.exe
+
+#Object Files
 *.o
+*.ko
+*.obj
+*.elf
