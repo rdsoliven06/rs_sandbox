@@ -9,7 +9,7 @@ int withdrawal_option(int current_balance){
 	printf("Please enter the amount: ");
 	scanf("%d", &withdrawal_amnt);
 	new_balance = (current_balance - withdrawal_amnt); //subtract current balance to withdrawal amount
-	printf("\nYour withdrawal amount is $%d. YOur new balance is $%d.\n", withdrawal_amnt, new_balance);
+	printf("\nYour withdrawal amount is $%d. Your new balance is $%d.\n", withdrawal_amnt, new_balance);
 	current_balance = new_balance;
 
 	return current_balance;
