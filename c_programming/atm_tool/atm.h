@@ -1,5 +1,5 @@
 /*Note: Below are the function declarations for the atm tool
-You can find more informatio about each functions in their respective c files*/
+You can find more information about each functions in their respective c files*/
 int enter_pin(void);
 int deposit_option(int);
 int new_transaction_opt(void);
