@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include "atm.h"
+
 /*Note: This function is for withdrawal option. It will ask the user to enter desired amount, calculate new balance,
 	display withdrawal amount and the new balance, and set current balance to new balance, finally return
 	current balance.*/

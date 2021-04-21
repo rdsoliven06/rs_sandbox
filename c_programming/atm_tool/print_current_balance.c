@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include "atm.h"
 /*Note: This function prints the current balance*/
 
 void print_current_balance(int current_balance){

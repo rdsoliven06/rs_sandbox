@@ -1,7 +1,10 @@
+#include <stdio.h>
+#include "atm.h"
+
 /*Note: This function is for user to make another transaction. It will ask user if they want to make new transaction.
 	If user input is other than 1 or 0, print error message. Ask user again.*/
 
-int new_transaction_opt(){
+int new_transaction_opt(void){
 	int new_transaction;
 
 	do {

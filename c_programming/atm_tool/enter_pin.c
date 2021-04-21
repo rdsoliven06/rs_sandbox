@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include "atm.h"
+
 /*Note: This function asks the user to enter their pin*/
 int enter_pin(void){
 	int pin;

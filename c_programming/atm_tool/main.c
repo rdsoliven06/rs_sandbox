@@ -1,13 +1,6 @@
 #include<stdio.h>
 #include <time.h> //time_t
-#include "time.h"
-#include "enter_pin.h"
-#include "error_message.h"
-#include "transaction_options.h"
-#include "withdrawal_option.h"
-#include "print_current_balance.h"
-#include "deposit_option.h"
-#include "new_transaction_opt.h"
+#include "atm.h"
 
 int main(){
 
