@@ -25,7 +25,6 @@ int main(){
 int count_odd(int arr[], int count){
 	count=0;
 	int i;
-
 	for (i=0;i<LEN;i++){
 		if(arr[i] % 2 != 0){
 			count++;
