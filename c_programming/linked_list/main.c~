@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h> //malloc
 
+
 typedef struct nodes{
 	int data;
 	struct nodes *next;
@@ -12,9 +13,6 @@ void push(node **head_ref, int new_data){
 	new_node->next = *head_ref; //make next of new node as head
 	*head_ref = new_node; //move the head to point to the new node
 }
-
-
-/* Will add a node at the end of the list */
 void append(node **head_ref, int new_data){
 	node *new_node = malloc(sizeof(node)); //allocate new node
 	node *last = *head_ref;
@@ -32,31 +30,32 @@ void append(node **head_ref, int new_data){
 	last->next = new_node; //change the next of last node
 	return;
 }
-		
+	
+	
+
 void empty_list(node *head){
 	node *ptr = head;
 	if (ptr == NULL){
 		printf("This is an empty list.\n");
 	}
 }
-
 void print_list(node *head){
 	node *ptr = head; //ptr equals to the head pointer
 	while (ptr != NULL){
-		printf("%d->", ptr->data);
+		printf("%d\n", ptr->data);
 		ptr = ptr->next;
 	}
 	empty_list(head);
 }
 
+
 int main(){
 	node *head = NULL; //start with an empty list
-	append(&head, 6);
+	append(&head,6);
 	push(&head, 7);	
 	push(&head, 1);
-	push(&head, 2);
+	append(&head,5);
 	print_list(head);
-	printf("\n");
 
 	return 0;
 }
