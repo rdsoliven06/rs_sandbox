@@ -8,5 +8,6 @@
 *.obj
 *.elf
 
-#C Files
+#Junk Files
 *.c~
+*.md~
