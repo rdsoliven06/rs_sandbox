@@ -2,11 +2,9 @@
 It covers the idea of 4 main components of OPP:
 1. Encapsulation - idea of bundling data for preventing outside of class to directly access data.
 2. Abstraction - hiding complex things behind a procedure to make things simple. 
-3. Inheritance - derived class inherit from a parent class.  )
-4. Polymorphism - ability of an object or a method to use many forms. The most common use of
-polymorhpishm is when a parent class reference is used to refer to a child class object.
+3. Inheritance - derived class inherit from a parent class.  
+4. Polymorphism - the ability of an object or a method to use in many forms. 
 */
-
 #include <iostream>
 using namespace std;
 
