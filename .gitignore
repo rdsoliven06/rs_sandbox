@@ -7,7 +7,4 @@
 *.ko
 *.obj
 *.elf
-
-#Junk Files
-*.c~
-*.md~
+*.*~
