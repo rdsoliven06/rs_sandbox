@@ -23,48 +23,78 @@ private:
 protected:
 	string Name;
 public:
-	void setName(string name){ Name = name; } //setter
-	string getName(){ return Name; } //getter
+	/*Function Declarations*/
 	
-	void setCompany(string company){ Company = company; }
-	string getCompany(){ return Company; }
+	//setters
+	void setName(string name);
+	void setCompany(string company);
+	void setAge(int age);
+	//getters
+	string getName(void); 
+	string getCompany(void);
+	int getAge(void);
 	
-	void setAge(int age){ 
-		if (age >= 18){
-			Age = age;
-		} 
-	}
-	int getAge() { return Age; }
+	void introduce_yourself(void);
+	void ask_for_promotion(void);	
 	
-	//Constructor, must be public
+	/*Constructor, must be public*/
 	Employee(string name, string company, int age){
 		Name = name;
 		Company = company;
 		Age = age;
 	}
-		
-	void introduce_yourself(){
-		cout << "Name - " << Name << endl;
-		cout << "Company - " << Company << endl;
-		cout << "Age - " << Age << endl;
-	}
-	
-	void ask_for_promotion(){
-		if (Age > 30){
-			cout << Name << " got promoted!" << endl;
-		}
-		else{
-			cout << Name << " Sorry, NO promotion for you!" << endl;
-		}
-	}
 	
 	/*when virtual is invoke, the program checks if there is the same function in its 
 	inherited classes. If there is, it executes that instead*/
 	virtual void work(){
-		cout << Name << " is checking email, task backlog, peforming tasks..." << endl;
+		cout << Name << " is checking email, task backlog, performing tasks..." << endl;
 	}
 	
 };
+
+
+/*Employee Class function definitions start here*/
+void Employee::setName(string name){
+	Name = name;
+}
+void Employee::setCompany(string company){ 
+	Company = company; 
+}
+void Employee::setAge(int age){ 
+	if (age >= 18){
+		Age = age;
+	} 
+}
+
+string Employee::getName(void){ 
+	return Name; 
+}
+
+string Employee::getCompany(void){
+	return Company;
+}
+
+int Employee::getAge(void){
+	return Age;
+}
+
+void Employee::introduce_yourself(void){
+	cout << "Name - " << Name << endl;
+	cout << "Company - " << Company << endl;
+	cout << "Age - " << Age << endl;
+}
+
+void Employee::ask_for_promotion(){
+	if (Age > 30){
+		cout << Name << " got promoted!" << endl;
+	}
+	else{
+		cout << Name << " Sorry, NO promotion for you!" << endl;
+	}
+}
+	
+/*Employee Class function definitions end here*/
+
 
 //Template
 //child class:parent class
@@ -80,52 +110,61 @@ public:
 		fav_programming_language = fav_prog_lang;
 	}
 	
-	void fix_bug(){
-		cout << Name << " fixed bug using " << fav_programming_language << endl;
-	}
-	
-	void work(){
-		cout << Name << " is writing " << fav_programming_language << " code" << endl;
-	}
+	/*Function Declarations*/
+	void fix_bug(void);
+	void work(void);
 	
 };
+
+void Developer::fix_bug(void){
+	cout << Name << " fixed bug using " << fav_programming_language << endl;
+}
+void Developer::work(void){
+	cout << Name << " is writing " << fav_programming_language << "." <<endl;
+}
 
 class Teacher:public Employee {
 public:
 	string Subject;
-	void prepare_lesson(){
-		cout << Name << " is preparing " << Subject << " lesson " << endl;
-	}
+	void prepare_lesson(void);
+	void work(void);
+	
+	//constructor
 	Teacher(string name, string company, int age, string subject)
 		:Employee(name,company,age)
 	{
 		Subject = subject;
 	}
-	
-	void work(){
-		cout << Name << " is teaching " << Subject << endl;
-	}
 };
+
+void Teacher::prepare_lesson(void){
+	cout << Name << " is preparing " << Subject << " lessoon." << endl;
+}
+
+void Teacher::work(void){
+	cout << Name << " is also teaching " << Subject << "." << endl;
+}
 
 int main(){
 	Developer d = Developer("Jhun Rey", "Tesla", 28, "C++");
-	//d.fix_bug();
-	//d.ask_for_promotion();
-
 	Teacher t = Teacher("Jack",  "Cool School", 35, "History");
-	//t.prepare_lesson();
-	//t.ask_for_promotion();
-	
-	//d.work();
-	//t.work();
 	
 	//The most common use of polymorhpishm is when a parent class reference is used to refer 
 	//to a child class object
 	Employee *e1 = &d;
 	Employee *e2 = &t;
 	
+	//Access functions under developer and teacher classes
+	//Using Pointers
+	Developer *e01 = &d;
+	Teacher *e02 = &t;
+	
 	e1->work();
 	e2->work();
+	
+	e01->fix_bug();
+	e02->prepare_lesson();
+	
 	
 	return 0;
 }
