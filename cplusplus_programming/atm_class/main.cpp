@@ -158,7 +158,8 @@ int main(){
 		failed_attempts++;
 	}
 	
-	/*If user enters invalid pin the 3rd time, print invalid input and end the program*/
+	/*If user enters invalid pin the 3rd time, print invalid input and end the program.
+	Otherwise, continue with the program. Ask user to perform any transaction.*/
 	if (failed_attempts == 3){
 		cout << "Too many invalid inputs!" << endl;
 	}
