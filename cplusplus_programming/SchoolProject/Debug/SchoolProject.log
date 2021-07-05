@@ -1,0 +1,4 @@
+﻿  Students.cpp
+c:\users\vannessa\source\repos\schoolproject\students.cpp(54): warning C4018: '<': signed/unsigned mismatch
+  SchoolProject.vcxproj -> C:\Users\Vannessa\source\repos\SchoolProject\Debug\SchoolProject.exe
+  SchoolProject.vcxproj -> C:\Users\Vannessa\source\repos\SchoolProject\Debug\SchoolProject.pdb (Partial PDB)
