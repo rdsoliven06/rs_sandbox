@@ -6,18 +6,23 @@ const int MAX_NUM_CASES = 5;
 class HandleCovid
 {
 private:
-    int covidArr[MAX_NUM_CASES] = {0,0,0,0,0};
+    /* 1 = Exposed/Positive and 0 = Not Exposed/Negative. */
+    int covidArr[MAX_NUM_CASES] = {0,0,0,0,0}; 
     int isExposedArr[MAX_NUM_CASES] = {1,0,0,1,0};
 public:
-    HandleCovid(); //default Constructor
-    ~HandleCovid(); //default Destructor
-    int findPositiveCases();
+    /* Default Constructor */
+    HandleCovid();
+    /* Deefault Destructor */
+    ~HandleCovid(); 
+    /* countPositiveCase Method
+       Output:  Returns number of positive case */
+    void countPositiveCase();
 };
 
 HandleCovid::HandleCovid(){}
 HandleCovid::~HandleCovid(){}
 
-int  HandleCovid::findPositiveCases()
+void  HandleCovid::countPositiveCase()
 {   
     int isPositive = 1;
     int isNegative = 0;
@@ -41,10 +46,12 @@ int  HandleCovid::findPositiveCases()
     {
         cout << "Person ID [" << i << "] = ";
         cout <<  covidArr[i] << endl;
-    }    
+    }
 }
+
+// Main 
 int main(){
-        HandleCovid handleCovid;
-        handleCovid.findPositiveCases();
-	return 0;
+    HandleCovid handleCovid;
+    handleCovid.countPositiveCase();
+    return 0;
 }
