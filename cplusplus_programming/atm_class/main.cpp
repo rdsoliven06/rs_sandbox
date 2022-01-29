@@ -1,7 +1,10 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
+#include <limits>
 using namespace std;
+
+
 
 //Parent Class
 class ATM {
@@ -39,7 +42,14 @@ void ATM::print_error_message(void){
 }
 /*Display the current balance*/
 void ATM::print_current_balance(int current_balance){
-	cout << "Your current balance is $" << current_balance << endl;
+        if (current_balance <= 0)
+        {
+            cout << "Your current balance is $" << current_balance << endl;
+        }
+        else
+        {
+	    cout << "Your current balance is $" << current_balance << endl;
+        }
 }
 
 /*Derived Class: Pin - this class will ask the user to enter their pin*/
@@ -74,7 +84,7 @@ int Transaction::transaction_options(void){
 	cout << "\t\t2.Deposit" << endl;
 	cout << "\t\t3.Check Balance" << endl;
 	cout << "\n\nPlease select the option: ";
-	cin  >> option;
+	cin  >> option;       
 	return option;
 }
 
@@ -83,10 +93,18 @@ int Transaction::new_transaction_options(void){
 		cout << "Do you wish to perform another transaction? Press 1[Yes] 0[No]";
 		cin >> new_transaction;
 		
-		if (new_transaction > 1 || new_transaction < 0){
+		if (new_transaction > 1 || new_transaction < 0 || !new_transaction)
+                {
+                        cin.clear();
+                        cin.ignore(numeric_limits<int>::max(), '\n');
 			print_error_message();
+                        continue;
 		}
-	}while (new_transaction > 1 || new_transaction < 0);
+                else
+                {
+                        break;
+                }
+	}while (new_transaction < 0 || new_transaction > 1);
 	
 	return new_transaction;
 }
@@ -107,7 +125,7 @@ int Withdrawal::withdrawal_options(int current_balance){
 	cin >> withdrawal_amnt;
 	new_balance = (current_balance - withdrawal_amnt);
 	current_balance = new_balance;
-	cout << "Your withdrawal amount is $" << withdrawal_amnt << ".Your new balance is " << new_balance << "." << endl;
+	cout << "Your withdrawal amount is $" << withdrawal_amnt << ".Your new balance is $" << new_balance << "." << endl;
 	return current_balance;
 }
 
@@ -126,7 +144,7 @@ int Deposit::deposit_option(int current_balance){
 	cin >> deposit_amnt;
 	
 	new_balance = (deposit_amnt + current_balance);
-	cout << "Your deposited amount is $" << deposit_amnt << ".Your new balance is " << new_balance << "." << endl;
+	cout << "Your deposited amount is $" << deposit_amnt << ".Your new balance is $" << new_balance << "." << endl;
 	current_balance = new_balance;
 	cout << "\t\t==========*Thank you for banking with Advanced Learning ATM* ==========" << endl;
 	return current_balance;
@@ -161,7 +179,8 @@ int main(){
 	/*If user enters invalid pin the 3rd time, print invalid input and end the program.
 	Otherwise, continue with the program. Ask user to perform any transaction.*/
 	if (failed_attempts == 3){
-		cout << "Too many invalid inputs!" << endl;
+		cout << "Too many invalid inputs!";
+                cout << "Ending program now.... start over.." << endl;
 	}
 	else if (atm.UserPin == atm.get_actual_pin()){
 		do {
