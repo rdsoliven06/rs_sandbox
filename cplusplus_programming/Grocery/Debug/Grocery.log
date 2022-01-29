@@ -1,0 +1,6 @@
+﻿  Source.cpp
+c:\users\vannessa\source\repos\grocery\source.cpp(42): warning C4018: '<': signed/unsigned mismatch
+c:\users\vannessa\source\repos\grocery\source.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\users\vannessa\source\repos\grocery\source.cpp(58): warning C4018: '<': signed/unsigned mismatch
+  Grocery.vcxproj -> C:\Users\Vannessa\source\repos\Grocery\Debug\Grocery.exe
+  Grocery.vcxproj -> C:\Users\Vannessa\source\repos\Grocery\Debug\Grocery.pdb (Partial PDB)

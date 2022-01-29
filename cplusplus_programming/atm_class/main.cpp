@@ -6,11 +6,10 @@ using namespace std;
 //Parent Class
 class ATM {
 private:
-
 	int ActualPin;
 public:
 	int UserPin, Options, NewTransaction;
-	int current_balance = 3000; //customer's current balance
+	int current_balance = 3000; //user's current balance
 
 	void set_actual_pin(int); //setter
 	int get_actual_pin(void); //getter
@@ -20,29 +19,30 @@ public:
 	void print_current_balance(int);
 };
 
+/*Display the system's time and prints ATM welcome message*/
 void ATM::print_current_time(void){
 	time_t timeNow = time(NULL);
 	cout << "\t\t\t\t" << ctime(&timeNow);
 	cout <<"\t\t ==========*Welcome to Advanced Learning ATM*==========" << endl;
 }
-
+/*Setter: sets the pin for user*/
 void ATM::set_actual_pin(int actualPin){
 	ActualPin =  actualPin;
 }
-
+/*Getter: get the value of the user's pin*/
 int ATM::get_actual_pin(void){
 	return ActualPin;
 }
-
+/*Display error message when user enter invalid choice*/
 void ATM::print_error_message(void){
 	cout << "Invalid pin. Please try again. " << endl;
 }
-
+/*Display the current balance*/
 void ATM::print_current_balance(int current_balance){
 	cout << "Your current balance is $" << current_balance << endl;
 }
 
-//derived class
+/*Derived Class: Pin - this class will ask the user to enter their pin*/
 class Pin:public ATM {
 public:
 	int pin;
@@ -55,7 +55,10 @@ int Pin::enter_pin(void){
 	return pin;
 }
 
-//derived class
+/*Derived Class: Transaction - this class is specifically used for making transactions in ATM.
+transaction_options() - display the available transactions.
+new_transaction() - determine if the user wants to perform new transaction.
+*/
 class Transaction:public ATM {
 public:
 	int option;
@@ -88,7 +91,9 @@ int Transaction::new_transaction_options(void){
 	return new_transaction;
 }
 
-//derived class
+/*Derived Class: Withdrawal - this class performs the withdrawal feature of the ATM machine.
+withdrawal_options()- this function performs the withdrawal operatioN.
+*/
 class Withdrawal: public ATM {
 public:
 	int withdrawal_amnt;
@@ -106,6 +111,9 @@ int Withdrawal::withdrawal_options(int current_balance){
 	return current_balance;
 }
 
+/*Derived Class: Deposit - this class performs the deposit feature of the ATM machine.
+deposit_function() - this function performs the deposit operation.
+*/
 class Deposit: public ATM {
 public:
 	int new_balance = 0;
@@ -150,7 +158,8 @@ int main(){
 		failed_attempts++;
 	}
 	
-	/*If user enters invalid pin the 3rd time, print invalid input and end the program*/
+	/*If user enters invalid pin the 3rd time, print invalid input and end the program.
+	Otherwise, continue with the program. Ask user to perform any transaction.*/
 	if (failed_attempts == 3){
 		cout << "Too many invalid inputs!" << endl;
 	}
