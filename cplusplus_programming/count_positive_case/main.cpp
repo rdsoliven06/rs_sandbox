@@ -6,7 +6,8 @@ const int MAX_NUM_CASES = 5;
 class HandleCovid
 {
 private:
-    /* 1 = Exposed/Positive and 0 = Not Exposed/Negative. */
+    /* 1 = Exposed/Positive 
+       0 = Not Exposed/Negative. */
     int covidArr[MAX_NUM_CASES] = {0,0,0,0,0}; 
     int isExposedArr[MAX_NUM_CASES] = {1,0,0,1,0};
 public:
