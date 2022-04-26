@@ -26,7 +26,6 @@ public:
 	{
 		//initialize visited list to false
 		//mark all the vertices as not visited
-		
 		visited = new bool[numVertices];
 		for (int i=0;i<numVertices;i++)
 		{
