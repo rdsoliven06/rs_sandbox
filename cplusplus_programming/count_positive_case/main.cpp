@@ -13,7 +13,7 @@ private:
 public:
     /* Default Constructor */
     HandleCovid();
-    /* Deefault Destructor */
+    /* Default Destructor */
     ~HandleCovid(); 
     /* countPositiveCase Method
        Output:  Returns number of positive case */
